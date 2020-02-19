@@ -145,15 +145,15 @@ and run these plugins with the existing che-theia app:
 
 There is a [devfile](https://github.com/eclipse/che-theia/blob/osio-devfile/devfiles/hosted-che-dogfooding.devfile.yaml) to develop Che-Theia on [che.openshift.io](https://che.openshift.io)
 
-Projects directory on [che.openshift.io](https://che.openshift.io) is limited to 1 gigabyte. It's not enough to build Che-Theia.
+Projects directory which is a Persistent Volume on [che.openshift.io](https://che.openshift.io) is limited to 1 gigabyte. It's not enough to build Che-Theia.
 The main idea is to use `/tmp/theia` directotry. Amount for this directory is limited to 3 gigabytes, which is enough to build Che-Theia and run.
-In comparing with `/projects`, temporary directiry is not persisted and is cleared on workspace stop.
+In comparing with `/projects`, temporary directory is not persisted and is cleared on workspace stop.
 
 ### Create workspace
 
-Use the badge to creatye a workspace using factory
+Use the badge to create a workspace using factory
 
-[![Try id on che.openshift.io](https://img.shields.io/static/v1?label=che&message=openshift.io&color=orange)](https://che.openshift.io/f?url=https://raw.githubusercontent.com/eclipse/che-theia/osio-devfile/devfiles/hosted-che-dogfooding.devfile.yaml)
+[![Try it on che.openshift.io](https://img.shields.io/static/v1?label=che&message=openshift.io&color=orange)](https://che.openshift.io/f?url=https://raw.githubusercontent.com/eclipse/che-theia/osio-devfile/devfiles/hosted-che-dogfooding.devfile.yaml)
 
 ### Step 1: Copy sources to `/tmp/theia` directory
 
