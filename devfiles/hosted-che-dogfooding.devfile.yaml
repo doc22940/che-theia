@@ -8,7 +8,7 @@
 # See: https://sipb.mit.edu/doc/safe-shell/
 #
 #
-# A devfile to develpop che-theia projects on che.openshift.io.
+# A devfile to develpop che-theia projects on https://che.openshift.io.
 # For developers who work on Theia core or che-theia core extensions and plugins.
 
 apiVersion: 1.0.0
