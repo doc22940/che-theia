@@ -9,7 +9,7 @@
 #
 #
 # A devfile to develpop che-theia projects on https://che.openshift.io.
-# For developers who work on Theia core or che-theia core extensions and plugins.
+# For developers who work on Theia or Che-Theia extensions and plugins.
 
 apiVersion: 1.0.0
 
