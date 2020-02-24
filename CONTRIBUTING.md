@@ -157,11 +157,13 @@ Use the badge to create a workspace using factory
 
 ### Step 1: Copy sources to `/tmp/theia` directory
 
-To copy sources to `/tmp/theia` directory use `'1. Rsync Theia'` command. With rsync it's become possible to edit sources in `/projects` with the following synchronizing with `/tmp/theia`.
+To copy sources to `/tmp/theia` directory use `'1. Rsync sources'` command. With rsync it's become possible to edit sources in `/projects` with the following synchronizing with `/tmp/theia`.
 
 ```
 [che-dev]
+$ mkdir -p /tmp/theia/che/che-theia;
 $ rsync -rtv --exclude='node_mobules' /projects/theia/ /tmp/theia/
+$ rsync -rtv --exclude='node_mobules' /projects/che-theia/ /tmp/theia/che/che-theia/
 ```
 
 ### Step 2: Initlalize Che-Theia
@@ -171,7 +173,7 @@ To initialize Che-Theia run `che:theia init` in `/tmp/theia` directory or use `'
 ```
 [che-dev]
 $ cd /tmp/theia
-$ che:theia init
+$ che:theia init --alias https://github.com/eclipse/che-theia=/tmp/theia/che/che-theia
 ```
 
 ### Step 3: Build

@@ -30,9 +30,18 @@ projects:
       branch: master
 
 components:
-  - id: eclipse/che-theia/latest
+  # - id: eclipse/che-theia/latest
+  #   memoryLimit: 1500M
+  #   type: cheEditor
+  #   alias: theia-editor
+
+  # Temporary switched to using latest version of Che-Theia
+  # Will be removed after updating hosted Che with Che-Theia 7.9.0 or newer.
+  - 
     memoryLimit: 1500M
     type: cheEditor
+    reference: >-
+      https://raw.githubusercontent.com/eclipse/che-plugin-registry/master/v3/plugins/eclipse/che-theia/next/meta.yaml
     alias: theia-editor
 
   - id: che-incubator/typescript/latest
@@ -58,13 +67,15 @@ components:
     image: 'quay.io/eclipse/che-theia-dev:next'
 
 commands:
-  - name: '1. Rsync theia'
+  - name: '1. Rsync sources'
     actions:
       - workdir: /projects
         type: exec
         command: |
           echo -e '\e[32mRsyncing theia sources to /tmp/theia...\e[0m'; \
+          mkdir -p /tmp/theia/che/che-theia; \
           rsync -rtv --exclude='node_mobules' /projects/theia/ /tmp/theia/; \
+          rsync -rtv --exclude='node_mobules' /projects/che-theia/ /tmp/theia/che/che-theia/; \
           echo -e '\e[32mDone\e[0m'
         component: che-dev
 
@@ -74,7 +85,7 @@ commands:
         type: exec
         command: |
           echo -e '\e[32mInitializing che-theia...\e[0m'; \
-          che:theia init; \
+          che:theia init --alias https://github.com/eclipse/che-theia=/tmp/theia/che/che-theia; \
           echo -e '\e[32mDone\e[0m'
         component: che-dev
 
